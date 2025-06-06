@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/user/repo.git'
+                git url: 'https://github.com/PurushothB08/Gittest1.git', credentialsId: 'github-pat'
             }
         }
         stage('Compile') {
