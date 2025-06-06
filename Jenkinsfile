@@ -1,19 +1,14 @@
 pipeline {
-    agent any
+    agent none
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/PurushothB08/Gittest1.git', credentialsId: 'github-pat'
+        stage('Example') {
+            agent any
+            options {
+                // Timeout counter starts BEFORE agent is allocated
+                timeout(time: 1, unit: 'SECONDS')
             }
-        }
-        stage('Compile') {
             steps {
-                sh 'mvn clean compile'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
+                echo 'Hello World'
             }
         }
     }
